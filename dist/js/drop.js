@@ -24,7 +24,7 @@ var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _Tether$Utils = Tether.Utils;
 var extend = _Tether$Utils.extend;
@@ -95,7 +95,7 @@ var allDrops = {};
 // copy of drop which won't interact with other copies on the page (beyond calling the document events).
 
 function createContext() {
-  var options = arguments[0] === undefined ? {} : arguments[0];
+  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
   var drop = function drop() {
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -154,6 +154,8 @@ function createContext() {
   };
 
   var DropInstance = (function (_Evented) {
+    _inherits(DropInstance, _Evented);
+
     function DropInstance(opts) {
       _classCallCheck(this, DropInstance);
 
@@ -178,8 +180,6 @@ function createContext() {
       this.setupEvents();
       this.setupTether();
     }
-
-    _inherits(DropInstance, _Evented);
 
     _createClass(DropInstance, [{
       key: '_on',
@@ -215,7 +215,7 @@ function createContext() {
             if (typeof contentElementOrHTML === 'string') {
               _this.content.innerHTML = contentElementOrHTML;
             } else if (typeof contentElementOrHTML === 'object') {
-              _this.content.innerHTML = '';
+              _this.content.innerHTML = "";
               _this.content.appendChild(contentElementOrHTML);
             } else {
               throw new Error('Drop Error: Content function should return a string or HTMLElement.');
@@ -418,9 +418,6 @@ function createContext() {
     }, {
       key: '_transitionEndHandler',
       value: function _transitionEndHandler(e) {
-        if (e.target !== e.currentTarget) {
-          return;
-        }
 
         if (!hasClass(this.drop, drop.classPrefix + '-open')) {
           removeClass(this.drop, drop.classPrefix + '-open-transitionend');
