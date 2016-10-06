@@ -1,9 +1,7 @@
 ## Drop
 
-[![npm
-version](https://badge.fury.io/js/tether-drop.svg)](http://badge.fury.io/js/tether-drop)
-[![Bower
-version](https://badge.fury.io/bo/tether-drop.svg)](http://badge.fury.io/bo/tether-drop)
+[![GitHub
+version](https://badge.fury.io/gh/HubSpot%2Fdrop.svg)](http://badge.fury.io/gh/HubSpot%2Fdrop)
 
 Drop.js is a powerful Javascript and CSS library for creating dropdowns and other floating displays.
 
@@ -15,9 +13,6 @@ Drop.js is a powerful Javascript and CSS library for creating dropdowns and othe
 __Dependencies__
 
 * __[Tether](https://github.com/HubSpot/tether)__
-
-Installing via `npm` and `bower` will bring in the above dependencies as well.
-
 
 __npm__
 ```sh
