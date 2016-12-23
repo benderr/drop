@@ -25,6 +25,6 @@
     "tests"
   ],
   "dependencies": {
-    "tether": "https://github.com/RobertModulebank/tether.git#v1.1.2"
+    "tether": "https://github.com/benderr/tether.git#v1.3.4"
   }
 }
